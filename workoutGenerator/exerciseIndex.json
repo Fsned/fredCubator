@@ -1,0 +1,453 @@
+{
+    "Back": [
+        { 
+            "unit": "reps",
+            "name": "Shaft supermen",
+            "repsMin": 5,
+            "repsMax": 10,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15,
+            "comment": "Lie on your belly, form a 'Y' with your hands, forehead placed in ground. Lift broomshaft"
+        },
+        { 
+            "unit": "reps",
+            "name": "One-hand bent-over row",
+            "repsMin": 5,
+            "repsMax": 10,
+            "setsMin": 3,
+            "setsMax": 6,
+            "intensity": 15,
+            "comment": "Repeat for both arms"
+        },
+        { 
+            "unit": "reps",
+            "name": "Two-hand rows",
+            "repsMin": 5,
+            "repsMax": 10,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15,
+            "comment": "Either use a bar with weights, or dumb- / kettle-bells."
+        },
+        { 
+            "unit": "reps",
+            "name": "Shaft supermen",
+            "repsMin": 5,
+            "repsMax": 10,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15,
+            "comment": "Lie on your belly, form a 'Y' with your hands, forehead placed in ground. Lift broomshaft"
+        },
+        { 
+            "unit": "reps",
+            "name": "Lateral Pulldowns",
+            "repsMin": 5,
+            "repsMax": 10,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15,
+            "comment": "Sit flat, back straight, core tensioned, pull down."
+        },
+        { 
+            "unit": "reps",
+            "name": "Deadlift",
+            "repsMin": 5,
+            "repsMax": 10,
+            "setsMin": 3,
+            "setsMax": 7,
+            "intensity": 15,
+            "comment": "GO boi"
+        },
+        { 
+            "unit": "reps",
+            "name": "Renegade Dumbbell Rows",
+            "repsMin": 5,
+            "repsMax": 10,
+            "setsMin": 2,
+            "setsMax": 6,
+            "intensity": 15,
+            "comment": "Stand in plank, straight arms, dumbbells in hands. Alternate lifting a dumbbell as high as possible."
+        }
+
+    ],
+    "Pecs": [
+        { 
+            "unit": "reps",
+            "name": "Benchpress",
+            "repsMin": 6,
+            "repsMax": 12,
+            "setsMin": 4,
+            "setsMax": 8,
+            "intensity": 15,
+            "comment": ""
+        },
+        { 
+            "unit": "reps",
+            "name": "Dumbbell Benchpress",
+            "repsMin": 6,
+            "repsMax": 12,
+            "setsMin": 4,
+            "setsMax": 8,
+            "intensity": 15,
+            "comment": ""
+        },
+        { 
+            "unit": "reps",
+            "name": "Wide Pushups",
+            "repsMin": 8,
+            "repsMax": 16,
+            "setsMin": 3,
+            "intensity": 15,
+            "setsMax": 7
+        }
+    ],
+    "Legs": [
+        { 
+            "unit": "reps",
+            "name": "Squat",
+            "repsMin": 4,
+            "repsMax": 12,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15
+        },
+        { 
+            "unit": "reps",
+            "name": "Bulgurian Splitsquat",
+            "repsMin": 3,
+            "repsMax": 7,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15
+        },
+        { 
+            "unit": "reps",
+            "name": "Step-ups",
+            "repsMin": 3,
+            "repsMax": 7,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15,
+            "comment": "Repeat for both legs."
+        },
+        { 
+            "unit": "reps",
+            "name": "Hipthrusters",
+            "repsMin": 3,
+            "repsMax": 7,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15
+        },
+        { 
+            "unit": "reps",
+            "name": "Forward Lunges",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15,
+            "comment": "Repeat for both legs"
+        },
+        { 
+            "unit": "reps",
+            "name": "Reverse Lunges",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15,
+            "comment": "Repeat for both legs"
+        }
+    ],
+    "Fullbody": [
+        {
+            "name": "Cleans",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 12,
+            "setsMin": 3,
+            "setsMax": 8,
+            "intensity": 15
+        },
+        { 
+            "name": "Snatches",
+            "unit": "reps",
+            "repsMin": 3,
+            "repsMax": 7,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15
+        }
+    ],
+    "Handstand": [
+        {
+            "unit": "seconds",
+            "name": "Handstand Hold",
+            "repsMin": 5,
+            "repsMax": 1000,
+            "setsMin": 3,
+            "setsMax": 10,
+            "intensity": 15
+        },
+        {
+            "unit": "distance",
+            "name": "Handstand Walk",
+            "repsMin": 5,
+            "repsMax": 15,
+            "setsMin": 3,
+            "setsMax": 10,
+            "intensity": 15
+        }
+    ],
+    "Biceps": [
+        { 
+            "name": "Dumbbell curls",
+            "unit": "reps",
+            "repsMin": 5,
+            "repsMax": 8,
+            "setsMin": 3,
+            "setsMax": 7,
+            "comment": "Do the reps for both arms",
+            "intensity": 15
+        },
+        { 
+            "name": "Hammer curls",
+            "unit": "reps",
+            "repsMin": 5,
+            "repsMax": 8,
+            "setsMin": 3,
+            "setsMax": 7,
+            "comment": "Do the reps for both arms",
+            "intensity": 15
+        },
+        { 
+            "name": "Medicine Ball curls",
+            "unit": "reps",
+            "repsMin": 5,
+            "repsMax": 8,
+            "setsMin": 3,
+            "setsMax": 7,
+            "intensity": 15
+        }
+    ],
+    "Triceps": [
+        { 
+            "name": "Pushups",
+            "unit": "reps",
+            "repsMin": 6,
+            "repsMax": 12,
+            "setsMin": 3,
+            "setsMax": 7,
+            "comment": "Arms at shoulder width",
+            "intensity": 15
+        },
+        { 
+            "name": "Diamond Pushups",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "Hands placed under chest, shaped like a diamond",
+            "intensity": 15
+        },
+        { 
+            "name": "1 Ball Pushups, v1",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "Hands placed a medicine ball",
+            "intensity": 15
+        },
+        { 
+            "name": "1 Ball Pushups, v2",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 8,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "One hand placed on a ball, alternate hands between reps",
+            "intensity": 15
+        },
+        { 
+            "name": "2 Ball Pushups",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "Hands and feet placed on medicine balls",
+            "intensity": 15
+        },
+        { 
+            "name": "Floorpress",
+            "unit": "reps",
+            "repsMin": 6,
+            "repsMax": 10,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "",
+            "intensity": 15
+        },
+        { 
+            "name": "Close-grip benchpress",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "Hands 5 - 10 cm apart",
+            "intensity": 15
+        },
+        { 
+            "name": "Dips",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 8,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "",
+            "intensity": 15
+        },
+        { 
+            "name": "Overhead Tricep Extension",
+            "unit": "reps",
+            "repsMin": 8,
+            "repsMax": 12,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "Sit straight up on a bench without back, lift dumbbell straight up and down, behind your head",
+            "intensity": 15
+        },
+        { 
+            "name": "Skullcrushers (Lying tricep extension)",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "Lie down, curlbar in hand, bend down behind your head and extend up",
+            "intensity": 15
+        },
+        { 
+            "name": "One-Arm kettlebress floor press",
+            "unit": "reps",
+            "repsMin": 4,
+            "repsMax": 9,
+            "setsMin": 3,
+            "setsMax": 6,
+            "comment": "Like floorpress, but with 1 kettlebell in 1 hand at a time.",
+            "intensity": 15
+        }
+
+    ],
+    "Mobility": [
+            { 
+                "name": "Mobility",
+                "unit": "minutes",
+                "repsMin": 60,
+                "repsMax": 60,
+                "setsMin": 1,
+                "setsMax": 1,
+                "comment": "Just lean back and relax, it's stretchy time!",
+                "intensity": 1,
+                "abc": false
+            }
+    ],
+    "Stomach": [
+        { 
+            "name": "Toes2Bar",
+            "unit": "reps",
+            "repsMin": 6,
+            "repsMax": 14,
+            "setsMin": 3,
+            "setsMax": 8,
+            "intensity": 15
+        },
+        { 
+            "name": "Plank",
+            "unit": "seconds",
+            "repsMin": 30,
+            "repsMax": 90,
+            "setsMin": 3,
+            "setsMax": 5,
+            "intensity": 15
+        },
+        { 
+            "name": "Side plank",
+            "unit": "seconds",
+            "repsMin": 25,
+            "repsMax": 55,
+            "setsMin": 2,
+            "setsMax": 4,
+            "comment": "repeat on both sides",
+            "intensity": 15
+        },
+        { 
+            "name": "Russian Twist",
+            "unit": "reps",
+            "repsMin": 10,
+            "repsMax": 18,
+            "setsMin": 2,
+            "setsMax": 5,
+            "comment": "",
+            "intensity": 15
+        }
+    ],
+    "Run - no breaks": [
+        {
+            "unit": "meters",
+            "name": "3k run",
+            "repsMin": 3000,
+            "repsMax": 3000,
+            "setsMin": 1,
+            "setsMax": 1,
+            "intensity": 100
+        },
+        {
+            "name": "5k run",
+            "unit": "meters",
+            "repsMin": 5000,
+            "repsMax": 5000,
+            "setsMin": 1,
+            "setsMax": 1,
+            "intensity": 100
+        },
+        {
+            "name": "7k run",
+            "unit": "meters",
+            "repsMin": 7000,
+            "repsMax": 7000,
+            "setsMin": 1,
+            "setsMax": 1,
+            "intensity": 100
+        }
+    ],
+    "Run - intervals": [
+        {
+            "name": "3KM Interval Run",
+            "unit": "meters",
+            "repsMin": 1000,
+            "repsMax": 1000,
+            "setsMin": 3,
+            "setsMax": 3,
+            "comment": "Take a break in between each kilometer, and walk for 30 - 120 seconds",
+            "intensity": 100
+        },
+        {
+            "name": "4KM Interval Run",
+            "unit": "meters",
+            "repsMin": 1000,
+            "repsMax": 1000,
+            "setsMin": 4,
+            "setsMax": 4,
+            "comment": "Take a break in between each kilometer, and walk for 30 - 120 seconds",
+            "intensity": 100
+        }
+    ]
+}

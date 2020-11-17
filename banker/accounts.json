@@ -1,0 +1,33 @@
+{
+    "0": {
+        "customerName": "Dummy",
+        "accountId": 0,
+        "balance": 999999
+    },
+    "1": {
+        "customerName": "Fred",
+        "accountId": 69,
+        "balance": 135,
+        "_account__history": {
+            "0": "10/04/2020 18:13:38 - Account created - Name: Fred - AccountID: 69 - Initial Balance: 100",
+            "1": "10/04/2020 18:13:38 - Withdraw 25, new balance: 75",
+            "2": "10/04/2020 18:13:38 - Deposit 50, new balance: 125"
+        }
+    },
+    "2": {
+        "customerName": "Fred",
+        "accountId": 67581,
+        "balance": 100,
+        "_account__history": {
+            "0": "10/04/2020 18:18:53 - Account created - Name: Fred - AccountID: 67581 - Initial Balance: 100"
+        }
+    },
+    "3": {
+        "customerName": "Fred",
+        "accountId": 41927,
+        "balance": 100,
+        "_account__history": {
+            "0": "10/04/2020 18:46:55 - Account created - Name: Fred - AccountID: 41927 - Initial Balance: 100"
+        }
+    }
+}

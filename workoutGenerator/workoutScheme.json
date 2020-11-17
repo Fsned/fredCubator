@@ -1,0 +1,56 @@
+{
+    "weekPasses": 2,
+    "weeks": {
+        "1": {
+            "Monday": {
+                "1": "Run - no breaks"
+            },
+            "Tuesday": {
+                "1": "Nothing"
+            },
+            "Wednesday": {
+                "1": "Legs",
+                "2": "Fullbody"
+            },
+            "Thursday": {
+                "1": "Mobility"
+            },
+            "Friday": {
+                "1": "Nothing"
+            },
+            "Saturday": {
+                "1": "Pecs",
+                "2": "Handstand"
+            },
+            "Sunday": {
+                "1": "Nothing"
+            }
+        },
+        "2": {
+            "Monday": {
+                "1": "Run - no breaks"
+            },
+            "Tuesday": {
+                "1": "Triceps",
+                "2": "Back"
+            },
+            "Wednesday": {
+                "1": "Nothing"
+            },
+            "Thursday": {
+                "1": "Back",
+                "2": "Triceps",
+                "3": "Mobility"
+            },
+            "Friday": {
+                "1": "Nothing"
+            },
+            "Saturday": {
+                "1": "Run - intervals"
+            },
+            "Sunday": {
+                "1": "Nothing"
+            }
+        }
+    }
+}
