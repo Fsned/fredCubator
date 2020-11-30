@@ -15,6 +15,7 @@ versionString = StringVar()
 
 
 
+
 def newProductWindow():
 
     topWindow = Toplevel(mainWindow)
