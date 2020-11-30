@@ -9,13 +9,57 @@ mainWindow.title('MegaUltimateSuperSim V0.1')
 
 
 menubar = Menu(mainWindow)
+productString = StringVar()
+versionString = StringVar()
+
+
+def newProductWindow():
+
+    topWindow = Toplevel(mainWindow)
+    topWindow.geometry('305x105')
+
+    newSimFrame = LabelFrame(topWindow, text = 'Setup new simulator')
+    newSimFrame.grid(row = 0, column = 0)
+
+
+    startSimButton = Button(newSimFrame, text = 'Start simulator', command = lambda : startSim())
+    startSimButton.grid(row = 3, column = 0, columnspan = 8)
+
+    productList = [ 'MiR100',
+                    'MiR200',
+                    'MiR250',
+                    'MiR500',
+                    'MiR1000',
+                    'MiRFleet']
+
+    versionList = [ '2.7.9',
+                    '2.8.3',
+                    '2.10.2.3']
+    
+
+
+
+    chooseProductLabel = Label(newSimFrame, text = 'Choose a product')
+    chooseProductLabel.grid(row = 0, column = 0)
+    productComboBox = ttk.Combobox(newSimFrame, values = productList, textvariable = productString)
+    productComboBox.grid(row = 0, column = 1)
+
+    chooseVersionLabel = Label(newSimFrame, text = 'Choose a version')
+    chooseVersionLabel.grid(row = 1, column = 0)
+    versionComboBox = ttk.Combobox(newSimFrame, values = versionList, textvariable = versionString)
+    versionComboBox.grid(row = 1, column = 1)
+
+    topWindow.mainloop()
+
+
+
 
 def doNothing():
     print ("Hello!")
 
 
 createMenu = Menu(menubar, tearoff = 0)
-createMenu.add_command(label = 'Product Simulator', command = lambda : doNothing)
+createMenu.add_command(label = 'Product Simulator', command = lambda : newProductWindow())
 createMenu.add_command(label = 'Troubleshooting tool', command = lambda : doNothing)
 createMenu.add_separator()
 createMenu.add_command(label="Exit", command=mainWindow.quit)
@@ -42,7 +86,7 @@ def startSim():
 
 
 
-def newProductWindow():
+
 
 
 
@@ -89,36 +133,6 @@ class simulatorObject:
 
 
 
-newSimFrame = LabelFrame(mainWindow, text = 'Setup new simulator')
-newSimFrame.grid(row = 0, column = 0)
 
-
-startSimButton = Button(newSimFrame, text = 'Start simulator', command = lambda : startSim())
-startSimButton.grid(row = 3, column = 0, columnspan = 8)
-
-productList = [ 'MiR100',
-                'MiR200',
-                'MiR250',
-                'MiR500',
-                'MiR1000',
-                'MiRFleet']
-
-versionList = [ '2.7.9',
-                '2.8.3',
-                '2.10.2.3']
- 
-
-productString = StringVar()
-versionString = StringVar()
-
-chooseProductLabel = Label(newSimFrame, text = 'Choose a product')
-chooseProductLabel.grid(row = 0, column = 0)
-productComboBox = ttk.Combobox(newSimFrame, values = productList, textvariable = productString)
-productComboBox.grid(row = 0, column = 1)
-
-chooseVersionLabel = Label(newSimFrame, text = 'Choose a version')
-chooseVersionLabel.grid(row = 1, column = 0)
-versionComboBox = ttk.Combobox(newSimFrame, values = versionList, textvariable = versionString)
-versionComboBox.grid(row = 1, column = 1)
 
 mainWindow.mainloop()
