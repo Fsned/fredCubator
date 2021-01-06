@@ -1,8 +1,40 @@
-from PyQt5 import QtGui
-from PyQt5.QtWidgets import QApplication, QWidget, QFrame, QHBoxLayout, QPushButton
+from PyQt5.QtGui import QVBoxLayout, QHBoxLayout, QIcon
+from PyQt5.QtWidgets import QFrame, QLabel, QPushButton, QWidget, QMainWindow
+from PyQt5.QtCore import Qt
 import sys
  
  
+
+class inputPostWidget(QWidget):
+    def __init__(self, parent=None):
+        super(inputPostWidget, self).__init__()
+
+        self.layout = QVBoxLayout()
+
+
+
+
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.layout = QHBoxLayout()
+
+        self.inputBoxFrame = QFrame(self)
+        self.inputBoxFrame.setStyleSheet("background-color: blue")
+        self.inputBoxFrame.resize(800, 60)
+
+        
+
+        self.layout.addWidget(self.inputBoxFrame)
+
+        self.show()
+        
+
+
+
 class Window(QWidget):
     def __init__(self):
         super().__init__()
@@ -11,7 +43,7 @@ class Window(QWidget):
         self.left = 500
         self.width = 400
         self.height = 300
-        self.setWindowIcon(QtGui.QIcon("icon.png"))
+        self.setWindowIcon(QIcon("icon.png"))
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
         self.setStyleSheet('background-color:brown')
@@ -30,5 +62,7 @@ class Window(QWidget):
  
  
 App = QApplication(sys.argv)
-window = Window()
+
+mainWindow = MainWindow()
+
 sys.exit(App.exec())
