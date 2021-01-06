@@ -11,6 +11,8 @@ class inputPostWidget(QWidget):
 
         self.layout = QVBoxLayout()
 
+        self.inputLine = QLineEdit()
+
 
 
 
