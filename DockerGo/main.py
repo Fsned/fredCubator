@@ -42,7 +42,7 @@ def startSim():
 
 
 
-def newProductWindow():
+#def newProductWindow():
 
 
 
