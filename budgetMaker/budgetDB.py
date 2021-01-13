@@ -127,3 +127,20 @@ def updatePost(conn, table, postID, post):
     cur = conn.cursor()
     cur.execute(sql, post)
     conn.commit()
+
+
+def fetchSpecificPost(conn, table, postID):
+    sql = ' SELECT * from ' + table + ' where id=' + postID 
+    cur = conn.cursor()
+    result = cur.execute(sql)
+    conn.commit()
+    
+    return result
+
+def fetchAllPosts(conn, table):
+    sql = ''' SELECT * from ''' + table
+    cur = conn.cursor()
+    result = cur.execute(sql)
+    conn.commit()
+    
+    return result
