@@ -7,7 +7,7 @@ import sys
 
 import budgetDB
 
-from datetime import datetime
+from datetime import datetime, date
  
 
 
@@ -58,7 +58,7 @@ class inputPostWidget(QWidget):
         self.layout.addWidget(self.addPostButton)
 
         self.showDBPostsButton = QPushButton()
-        self.showDBPostsButton.setText("Show DB Entries")
+        self.showDBPostsButton.setText("print DB Entries")
         self.showDBPostsButton.clicked.connect(lambda : self.clicked())
         self.layout.addWidget(self.showDBPostsButton)
         
@@ -75,13 +75,16 @@ class inputPostWidget(QWidget):
 
         monthlyAmount = int(postAmount) * int(yearlyTransactions) / 12
         
-        if endDate == "" or endDate == None:
-            endDate == ""
+        
+        endDate == ""
 
         todayDate = datetime.now()
+        todayDate = date.today()
 
         post = (name, postAmount, monthlyAmount, yearlyTransactions, todayDate, beginDate, endDate)
-        budgetDB.createPost(db, table, post)
+        postID = budgetDB.createPost(db, table, post)
+
+
 
     def clicked(self):
         
@@ -92,68 +95,86 @@ class inputPostWidget(QWidget):
 
 class oldPost(QWidget): 
 
+    
+
     def __init__(self, postObject): 
         super().__init__() 
-
+        
         self.frame = QFrame()
         self.frame.layout = QGridLayout()
-        if postObject['postAmount'] >= 0:
+        self.frame.setLayout(self.frame.layout)
+
+        if int(postObject['postAmount']) >= 0:
             self.frame.setStyleSheet("background-color: green")
         else:
             self.frame.setStyleSheet("background-color: red")
-        self.frame.setLayout(self.frame.layout)
-        
 
-        postObjectsLabels = []
-        postObjectsValues = []
+        self.postObjectsLabels = []
 
         for enum, a in enumerate(postObject):
-            postObjectsLabels.append(QLabel(str(a)))
-            postObjectsValues.append(QLabel(str(postObject[a])))
-            self.frame.layout.addWidget(postObjectsLabels[-1], 0, enum)
-            self.frame.layout.addWidget(postObjectsValues[-1], 1, enum)
+            if a == "id":
+                continue
 
+            self.postObjectsLabels.append(QLabel(str(a) + '\n' + str(postObject[a])))
+            self.frame.layout.addWidget(self.postObjectsLabels[-1], 0, enum)
         
-class MainWindow(QMainWindow): 
+
+        self.deleteButton = QPushButton("Delete post")
+        self.deleteButton.clicked.connect(lambda : self.deletePost(db, postObject['id']))
+        self.frame.layout.addWidget(self.deleteButton, 0, 8)
+
+
+        window.addPostToUI(self)
+
+
+
+
+
+
+    def labelClicked(self, text):
+        print (text)
+
+    def deletePost(self, database, postID):
+        print ("Destroying ID: " + str(postID))
+        budgetDB.deletePost(db, "income_posts", str(postID))
+        self.frame.destroy()
+
+class MainWindow(QMainWindow):
   
     def __init__(self, parent = None): 
         super().__init__(parent) 
-        self.init_gui() 
+        self.init_gui()
+
+        
   
     def init_gui(self): 
+        self.renderedPosts = []
         self.window = QWidget() 
         self.layout = QGridLayout() 
         self.setCentralWidget(self.window)
         self.window.setLayout(self.layout)
 
-        
-
         self.inputWidget = inputPostWidget()
         self.layout.addWidget(self.inputWidget)
-
-        dummyPost = {   "postName": "salary",
-                        "postAmount": -36200,
-                        "monthlyAmount": 36200,
-                        "yearlyTransactions": 12,
-                        "addedDate": "13/1/2021",
-                        "beginDate": "13/1/2021",
-                        "endDate": "N/A"}
-
-        for a in range(3):
-            self.layout.addWidget((oldPost(dummyPost)).frame)
+        self.loadExistingPosts()
 
     def loadExistingPosts(self):
 
-        # Get all existing posts from database in a nice format
-
+        # Get all existing posts from database in a niceself.layout.addWidget((oldPost(a)).frame) format
+        existingPosts = budgetDB.fetchAllPosts(db, "income_posts")
         # destroy existing 'old posts' from the ui
+        #eh?
 
-        # call the oldPost(postObject) on all db posts
+        # call the oldPost(postObject) on all db posts, and add it to the layout
+        for a in existingPosts:
+            #self.renderedPosts.append(oldPost(a))
+            #self.layout.addWidget
+            self.layout.addWidget((oldPost(a)).frame)
 
-        # add the new oldPost to the layout
-        a = 1
-        
-        
+    def addPostToUI(self, postObject):
+        self.layout.addWidget(postObject.frame)
+
+
         
   
 if __name__ == '__main__':
@@ -162,7 +183,7 @@ if __name__ == '__main__':
 
     app = QApplication([]) 
   
-    win = MainWindow() 
-    win.show() 
+    window = MainWindow() 
+    window.show() 
   
     sys.exit(app.exec_()) 

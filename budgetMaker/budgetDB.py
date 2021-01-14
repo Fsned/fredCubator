@@ -143,4 +143,19 @@ def fetchAllPosts(conn, table):
     result = cur.execute(sql)
     conn.commit()
     
-    return result
+    resultList = []
+
+    for a in result:
+        postDict = {"id": a[0],
+                    "postName": a[1],
+                    "postAmount": a[2],
+                    "monthlyAmount": a[3],
+                    "yearlyTransactions": a[4],
+                    "addedDate": a[5],
+                    "beginDate": a[6],
+                    "endDate": a[7]
+                    }
+
+        resultList.append(postDict)
+
+    return resultList
