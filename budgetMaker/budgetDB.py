@@ -130,12 +130,24 @@ def updatePost(conn, table, postID, post):
 
 
 def fetchSpecificPost(conn, table, postID):
-    sql = ' SELECT * from ' + table + ' where id=' + postID 
+    sql = ' SELECT * from ' + table + ' where id=?'
     cur = conn.cursor()
-    result = cur.execute(sql)
+    cur.execute(sql, str(postID))
+    result = cur.fetchone()
+    print (result)
     conn.commit()
-    
-    return result
+
+    postDict = {"id": result[0],
+                    "postName": result[1],
+                    "postAmount": result[2],
+                    "monthlyAmount": result[3],
+                    "yearlyTransactions": result[4],
+                    "addedDate": result[5],
+                    "beginDate": result[6],
+                    "endDate": result[7]
+                    }
+
+    return postDict
 
 def fetchAllPosts(conn, table):
     sql = ''' SELECT * from ''' + table
