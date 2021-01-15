@@ -3,12 +3,16 @@ from PyQt5.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel, QLi
 QPushButton, QTextEdit, QVBoxLayout, QWidget, QMainWindow, QFrame, QDateEdit, QDoubleSpinBox)
 from PyQt5.QtCore import Qt, QRect
 import sys
-import sip
 
 import budgetDB
 
-from datetime import datetime, date
+from datetime import date
  
+
+
+
+
+
 
 
 
@@ -56,43 +60,48 @@ class inputPostWidget(QWidget):
                                                                    self.beginDateBox.text(),
                                                                    self.endDateBox.text()))
         
-        #self.addPostButton.clicked.connect(lambda : print(int(self.postAmountBox.text())))
         self.layout.addWidget(self.addPostButton)
         self.showDBPostsButton = QPushButton()
         self.showDBPostsButton.setText("print DB Entries")
-        self.showDBPostsButton.clicked.connect(lambda : self.clicked())
+        self.showDBPostsButton.clicked.connect(lambda : self.showDBEntriesClicked())
         self.layout.addWidget(self.showDBPostsButton)
         
         
+
+
     def textbox_text_changed(self): 
         self.echo_label.setText(self.textbox.text()) 
 
+
+
+
     def addPost(self, name, postAmount, yearlyTransactions, beginDate, endDate):
-        
-        if int(postAmount) >= 0:
-            table = "income_posts"
-        else:
-            table = "expense_posts"
-
-        monthlyAmount = int(postAmount) * int(yearlyTransactions) / 12
-        
-        endDate == ""
-
-        todayDate = datetime.now()
+        monthlyAmount = (int(postAmount) * int(yearlyTransactions)) / 12
         todayDate = date.today()
-
         post = (name, postAmount, monthlyAmount, yearlyTransactions, todayDate, beginDate, endDate)
-        postID = budgetDB.createPost(db, table, post)
-
-        postObject = budgetDB.fetchSpecificPost(db, table, postID)
+        postID = budgetDB.createPost(db, post)
+        postObject = budgetDB.fetchSpecificPost(db, postID)
         postObject = oldPost(postObject)
         window.addPostToUI(postObject)
 
-    def clicked(self):
-        
-        result = budgetDB.fetchAllPosts(db, "income_posts")
+
+
+
+    def showDBEntriesClicked(self):
+        result = budgetDB.fetchAllPosts(db)
         for a in result:
             print (a)
+
+
+
+
+
+
+
+
+
+
+
 
 
 class oldPost(QWidget): 
@@ -116,21 +125,42 @@ class oldPost(QWidget):
                 continue
 
             self.postObjectsLabels.append(QLabel(str(a) + '\n' + str(postObject[a])))
+            self.postObjectsLabels[-1].setAlignment(Qt.AlignCenter)
             self.frame.layout.addWidget(self.postObjectsLabels[-1], 0, enum)
-        
+
 
         self.deleteButton = QPushButton("X")
         self.deleteButton.clicked.connect(lambda : self.deletePost(db, postObject['id']))
         self.frame.layout.addWidget(self.deleteButton, 0, 8)
 
+
+
     def labelClicked(self, text):
         print (text)
 
+
+
     def deletePost(self, database, postID):
         print ("Destroying ID: " + str(postID))
-        budgetDB.deletePost(db, "income_posts", str(postID))
+        budgetDB.deletePost(db, str(postID))
         self.setParent(None)
         window.reloadExistingPosts()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class MainWindow(QMainWindow):
   
@@ -159,7 +189,7 @@ class MainWindow(QMainWindow):
         for i in reversed(range(self.postFrame.layout.count())): 
             self.postFrame.layout.itemAt(i).widget().setParent(None)
 
-        existingPosts = budgetDB.fetchAllPosts(db, "income_posts")
+        existingPosts = budgetDB.fetchAllPosts(db)
         for a in existingPosts:
             self.addPostToUI(oldPost(a))
 

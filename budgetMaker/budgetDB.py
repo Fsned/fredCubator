@@ -20,13 +20,25 @@ def initDatabase(db_file):
     sql_create_incomePosts_table = """ CREATE TABLE IF NOT EXISTS income_posts (
                                         id integer PRIMARY KEY,
                                         name text NOT NULL,
-                                        post_amount,
-                                        monthly_amount,
-                                        yearly_transactions,
+                                        post_amount integer, 
+                                        monthly_amount integer,
+                                        yearly_transactions integer,
                                         added_date text,
                                         begin_date text,
                                         end_date text
                                     ); """
+
+    sql_create_economyPosts_table = """ CREATE TABLE IF NOT EXISTS economyPosts (
+                                        id integer PRIMARY KEY,
+                                        name text NOT NULL,
+                                        post_amount integer, 
+                                        monthly_amount integer,
+                                        yearly_transactions integer,
+                                        added_date text,
+                                        begin_date text,
+                                        end_date text
+                                    ); """                                    
+
 
     sql_create_expensePosts_table = """ CREATE TABLE IF NOT EXISTS expense_posts (
                                         id integer PRIMARY KEY,
@@ -39,8 +51,7 @@ def initDatabase(db_file):
                                         end_date text
                                     ); """         
 
-    create_table(conn, sql_create_incomePosts_table)
-    create_table(conn, sql_create_expensePosts_table)
+    create_table(conn, sql_create_economyPosts_table)
 
     return conn
 
@@ -58,7 +69,7 @@ def create_table(conn, create_table_sql):
         print(e)
 
 
-def createPost(conn, table, post):
+def createPost(conn, post):
     """
     Create a new post
     :param conn:
@@ -77,7 +88,7 @@ def createPost(conn, table, post):
 
 
 
-    sql = ''' INSERT INTO ''' + table + ''' (name,post_amount,monthly_amount,yearly_transactions,added_date,begin_date, end_date)
+    sql = ''' INSERT INTO economyPosts (name,post_amount,monthly_amount,yearly_transactions,added_date,begin_date, end_date)
               VALUES(?,?,?,?,?,?,?) '''
     cur = conn.cursor()
     cur.execute(sql, post)
@@ -86,36 +97,36 @@ def createPost(conn, table, post):
     return cur.lastrowid
 
 
-def deletePost(conn, table, postID):
+def deletePost(conn, postID):
     """
     Delete a task by task id
     :param conn:  Connection to the SQLite database
     :param id: id of the task
     :return:
     """
-    sql = 'DELETE FROM ' + table + ' WHERE id=?'
+    sql = 'DELETE FROM economyPosts WHERE id=?'
     cur = conn.cursor()
     cur.execute(sql, postID)
     conn.commit()
 
 
-def flushTable(conn, table):
+def flushTable(conn):
     """
     Delete all rows in the tasks table
     :param conn: Connection to the SQLite database
     :return:
     """
-    sql = 'DELETE FROM ' + table
+    sql = 'DELETE FROM economyPosts'
     cur = conn.cursor()
     cur.execute(sql)
     conn.commit()
 
 
-def updatePost(conn, table, postID, post):
+def updatePost(conn, postID, post):
 
 
 
-    sql = ''' UPDATE ''' + table + '''
+    sql = ''' UPDATE economyPosts
               SET   name=?,
                     post_amount=?,
                     monthly_amount=?,
@@ -129,12 +140,11 @@ def updatePost(conn, table, postID, post):
     conn.commit()
 
 
-def fetchSpecificPost(conn, table, postID):
-    sql = ' SELECT * from ' + table + ' where id=?'
+def fetchSpecificPost(conn, postID):
+    sql = ' SELECT * from economyPosts where id=?'
     cur = conn.cursor()
     cur.execute(sql, str(postID))
     result = cur.fetchone()
-    print (result)
     conn.commit()
 
     postDict = {"id": result[0],
@@ -149,8 +159,8 @@ def fetchSpecificPost(conn, table, postID):
 
     return postDict
 
-def fetchAllPosts(conn, table):
-    sql = ''' SELECT * from ''' + table
+def fetchAllPosts(conn):
+    sql = ' SELECT * from economyPosts'
     cur = conn.cursor()
     result = cur.execute(sql)
     conn.commit()
