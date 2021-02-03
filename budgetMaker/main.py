@@ -1,21 +1,13 @@
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel, QLineEdit, 
-QPushButton, QTextEdit, QVBoxLayout, QWidget, QMainWindow, QFrame, QDateEdit, QDoubleSpinBox)
-from PyQt5.QtCore import Qt, QRect
+QPushButton, QTextEdit, QVBoxLayout, QWidget, QMainWindow, QFrame, QDateEdit, QDoubleSpinBox, QSizePolicy)
+from PyQt5.QtCore import Qt, QRect, QRectF
 import sys
 
 import budgetDB
 
 from datetime import date
  
-
-
-
-
-
-
-
-
 
 
 class inputPostWidget(QWidget): 
@@ -108,13 +100,18 @@ class oldPost(QWidget):
 
     def __init__(self, postObject): 
         super().__init__() 
-        
+        #self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.frame = QFrame()
         self.frame.layout = QGridLayout()
         self.frame.setLayout(self.frame.layout)
 
         if int(postObject['postAmount']) >= 0:
-            self.frame.setStyleSheet("background-color: green")
+            self.frame.setStyleSheet("background-color: green;"
+                                        "border-top-left-radius :10px;"
+                                        " border-top-right-radius : 10px; "
+                                        "border-bottom-left-radius : 10px; "
+                                        "border-bottom-right-radius : 10px")
         else:
             self.frame.setStyleSheet("background-color: red")
 
@@ -133,6 +130,18 @@ class oldPost(QWidget):
         self.deleteButton.clicked.connect(lambda : self.deletePost(db, postObject['id']))
         self.frame.layout.addWidget(self.deleteButton, 0, 8)
 
+        #self.frame.setStyleSheet(
+        #                           ) 
+
+        #radius = 10.0
+        #path = QtGui.QPainterPath()
+        ##self.resize(440,220)
+        #path.addRoundedRect(QRectF(self.rect()), radius, radius)
+        #mask = QtGui.QRegion(path.toFillPolygon().toPolygon())
+        #self.frame.setMask(mask)
+
+        #self.setMask(mask)
+        #self.move(QtGui.QCursor.pos())
 
 
     def labelClicked(self, text):
@@ -142,7 +151,7 @@ class oldPost(QWidget):
 
     def deletePost(self, database, postID):
         print ("Destroying ID: " + str(postID))
-        budgetDB.deletePost(db, str(postID))
+        budgetDB.deletePost(db, postID)
         self.setParent(None)
         window.reloadExistingPosts()
 
@@ -165,9 +174,11 @@ class oldPost(QWidget):
 class MainWindow(QMainWindow):
   
     def __init__(self, parent = None): 
+        
         super().__init__(parent) 
         self.init_gui()
-
+        self.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        
     def init_gui(self): 
         self.renderedPosts = []
         self.window = QWidget() 

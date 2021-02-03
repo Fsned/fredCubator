@@ -104,9 +104,13 @@ def deletePost(conn, postID):
     :param id: id of the task
     :return:
     """
-    sql = 'DELETE FROM economyPosts WHERE id=?'
+    sql = 'DELETE FROM economyPosts WHERE id=' + str(postID)
+
+    #print("Conn: " + str(conn))
+    #print ("PostID: " + str(postID))
+
     cur = conn.cursor()
-    cur.execute(sql, postID)
+    cur.execute(sql)
     conn.commit()
 
 
