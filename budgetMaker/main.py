@@ -9,6 +9,7 @@ import budgetDB
 from datetime import date
  
 
+# Test here! SWOP-2
 
 class inputPostWidget(QWidget): 
   
@@ -129,19 +130,6 @@ class oldPost(QWidget):
         self.deleteButton = QPushButton("X")
         self.deleteButton.clicked.connect(lambda : self.deletePost(db, postObject['id']))
         self.frame.layout.addWidget(self.deleteButton, 0, 8)
-
-        #self.frame.setStyleSheet(
-        #                           ) 
-
-        #radius = 10.0
-        #path = QtGui.QPainterPath()
-        ##self.resize(440,220)
-        #path.addRoundedRect(QRectF(self.rect()), radius, radius)
-        #mask = QtGui.QRegion(path.toFillPolygon().toPolygon())
-        #self.frame.setMask(mask)
-
-        #self.setMask(mask)
-        #self.move(QtGui.QCursor.pos())
 
 
     def labelClicked(self, text):
